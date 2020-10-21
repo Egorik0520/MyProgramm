@@ -28,19 +28,19 @@ bg = pygame.image.load('Image/room.png') #изображение
 bg_rect = bg.get_rect(topleft=(0,0))
 
 cat = pygame.image.load('Image/cat.png')  #изображение
-cat_rect = cat.get_rect(topleft=(70, 220))
+cat_rect = cat.get_rect(center=(70, 220))
 
 dog = pygame.image.load('Image/dog.png')#изображение
-dog_rect = dog.get_rect(topleft=(410,220))
+dog_rect = dog.get_rect(center=(410,220))
 
 owl = pygame.image.load('Image/owl.png')#изображение
-owl_rect = owl.get_rect(topleft=(210,120))
+owl_rect = owl.get_rect(center=(210,120))
 
 dialog = pygame.image.load('Image/dialog.png')#изображение
-dialog_rect = dialog.get_rect(topleft=(0,0))
+dialog_rect = dialog.get_rect() 
 dialog_cat_pos = (cat_rect.x, cat_rect.y - dialog_rect.h)
 dialog_dog_pos = (dog_rect.x - dialog_rect.w // 2, dog_rect.y - dialog_rect.h)
-dialog_owl_pos = (owl_rect.x - dialog_rect.w // 2, owl_rect.y - dialog_rect.h)
+dialog_owl_pos = (owl_rect.x, owl_rect.y - dialog_rect.h)
 
 def dialogs(text,pos, owl_text):
     screen.blit(dialog,pos)
@@ -49,7 +49,7 @@ def dialogs(text,pos, owl_text):
     screen.blit(font2.render(
         owl_text,True,BLACK), (dialog_owl_pos[0]+5, dialog_owl_pos[1] +5))
     pygame.display.update()
-    pygame.time.wait(2000)
+    pygame.time.wait(1000)
 
 
 run = True 
@@ -76,18 +76,20 @@ while run:
                     if int(numeral) == num:
                         dialogs('Да',dialog_cat_pos, 'кот, ты победил')
                         block = 1
+                    else:
+                       dialog('пес, твой ход',dialog_dog_pos,'продолжаем')
                     
                 if move == 2:
                     if int(numeral) == num:
                         dialogs('Да',dialog_dog_pos, 'пес, ты победил')
                         block = 1
                     else:
-                        dialog('пес, твой ход',dialog_cat_pos,'на берлин')
-                        numeral = ''
+                        dialog('кот, твой ход',dialog_cat_pos,'продолжаем')
+                numeral = ''
                 move += 1
                 if move > 2:
                     move = 1 
-                    
+
 
                 
                     
