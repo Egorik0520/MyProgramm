@@ -77,14 +77,14 @@ while run:
                         dialogs('Да',dialog_cat_pos, 'кот, ты победил')
                         block = 1
                     else:
-                       dialog('пес, твой ход',dialog_dog_pos,'продолжаем')
+                       dialogs('пес, твой ход',dialog_dog_pos,'продолжаем')
                     
                 if move == 2:
                     if int(numeral) == num:
                         dialogs('Да',dialog_dog_pos, 'пес, ты победил')
                         block = 1
                     else:
-                        dialog('кот, твой ход',dialog_cat_pos,'продолжаем')
+                        dialogs('кот, твой ход',dialog_cat_pos,'продолжаем')
                 numeral = ''
                 move += 1
                 if move > 2:
