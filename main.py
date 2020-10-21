@@ -86,7 +86,8 @@ while run:
                         numeral = ''
                 move += 1
                 if move > 2:
-                    move = 1
+                    move = 1 
+                    
 
                 
                     
